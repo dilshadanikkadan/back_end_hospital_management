@@ -429,6 +429,9 @@ export const bookAppointment = async (req, res, next) => {
 
 // view appointment
 export const viewAppointment = async (req, res) => {
+  if(req.params.id == "undefined"){
+    return createError(400,"got error")
+  }
   const patientId = req.params.id;
   try {
     const response = await Appointment.find({
