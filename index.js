@@ -15,26 +15,15 @@ import http from "http"
 import { Server } from 'socket.io';
 import NotificationContoller from './controller/chatController/notificationController.js';
 
-// http set up for socket 
-const server = http.createServer(app)
-const io = new Server(server, {
-  cors: {
-    origin: "https://client-hospital-qv1u.vercel.app"
-  }
-});
-
- 
-//appendig as argument  
-NotificationContoller(io)
-
-//managing the cors
 const corsOptions = {
-  origin: 'https://client-hospital-qv1u.vercel.app',
+  origin: ['https://client-hospital.vercel.app/'],
   credentials: true,
   methods:["GET","POST","PUT","DELETE"]
 };
 //middlewires
 app.use(cors(corsOptions));
+//managing the cors
+
 app.use(express.json());
 app.use(cookieParser());
 app.use('/api/user', userRoute);
@@ -54,6 +43,20 @@ app.use((err, req, res, next) => {
     stack: err.stack,
   });
 });
+
+// http set up for socket 
+const server = http.createServer(app)
+const io = new Server(server, {
+  cors: {
+    origin: "https://client-hospital.vercel.app/"
+  }
+});
+
+ 
+//appendig as argument  
+NotificationContoller(io)
+
+
 
 
 

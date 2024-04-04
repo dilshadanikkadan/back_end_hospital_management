@@ -69,6 +69,6 @@ router.get("/single_appointments/:id", singleAppointment);
 router.post("/contactUs", contactUs);
 
 router.get("/check", (req, res, next) => {
-  res.send("server started");
+  res.send("server started again");
 });
 export default router;
