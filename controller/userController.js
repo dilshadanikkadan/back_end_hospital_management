@@ -198,7 +198,7 @@ export const resetPassword = async (req, res, next) => {
 export const chekLicenseIsValid = async (req, res, next) => {
   let id = "660d47456c48308131aace38";
   const { licenseNo } = req.body;
-  try { 
+  try {
     //cheking this is valid licenseNO or not
     const response = await LicenseShema.findById(id, {
       licenses: { $elemMatch: { $in: [licenseNo, "dummy"] } },
@@ -353,17 +353,17 @@ export const makePaymentDcotorValidate = async (req, res, next) => {
 };
 
 //getallDoctors
-export const getAllDoctor = async (req, res,next) => {
+export const getAllDoctor = async (req, res, next) => {
   try {
     const response = await ApprovedDoctorModel.find();
     res.status(200).json(response);
   } catch (error) {
-    next(error)
+    next(error);
   }
 };
 
-// booking appointment 
-export const bookAppointment = async (req, res,next) => {
+// booking appointment
+export const bookAppointment = async (req, res, next) => {
   const {
     patient,
     doctor,
@@ -397,7 +397,6 @@ export const bookAppointment = async (req, res,next) => {
       timeSelected,
     });
 
-    
     const updateStatus = await ApprovedDoctorModel.updateOne(
       {
         user: doctorListId,
@@ -424,10 +423,9 @@ export const bookAppointment = async (req, res,next) => {
     const saved = await newAppintmentSchema.save();
     res.status(200).json(updateStatus);
   } catch (error) {
-    next(error)
+    next(error);
   }
 };
-
 
 // view appointment
 export const viewAppointment = async (req, res) => {
@@ -446,7 +444,6 @@ export const viewAppointment = async (req, res) => {
     console.log(error);
   }
 };
-
 
 // cancele appointment
 export const cancelAppointment = async (req, res) => {
@@ -510,7 +507,7 @@ export const cancelAppointment = async (req, res) => {
   }
 };
 
-// single doctor 
+// single doctor
 export const viewSingleDoctor = async (req, res) => {
   const doctodId = req.params.id;
   console.log("doctor id :" + doctodId);
@@ -546,7 +543,6 @@ export const validatePatientPayment = async (req, res) => {
     console.log(error);
   }
 };
-
 
 //reschedule appointment
 export const reScheduleAppointment = async (req, res) => {
@@ -664,7 +660,6 @@ export const getReviews = async (req, res) => {
   }
 };
 
-
 // updating  the reviews
 export const updateReview = async (req, res) => {
   const { reviewId, ...others } = req.body;
@@ -682,7 +677,7 @@ export const updateReview = async (req, res) => {
   } catch (error) {}
 };
 
-//appointments related to patients 
+//appointments related to patients
 export const myAppointments = async (req, res) => {
   try {
     const response = await Appointment.find({
@@ -695,21 +690,20 @@ export const myAppointments = async (req, res) => {
   }
 };
 
-
 //single appoinements
-export const singleAppointment = async (req, res,next) => {
+export const singleAppointment = async (req, res, next) => {
   try {
     const response = await Appointment.findById(req.params.id).populate(
       "doctor"
     );
     res.status(200).json(response);
   } catch (error) {
-    next(error)
+    next(error);
   }
 };
 
 //manging contact us
-export const contactUs = async (req, res,next) => {
+export const contactUs = async (req, res, next) => {
   const { email, subject, message } = req.body;
   try {
     contactEmailSend({
@@ -719,6 +713,6 @@ export const contactUs = async (req, res,next) => {
     });
     res.status(200).json("send success  ");
   } catch (error) {
-    next(error)
+    next(error);
   }
 };
