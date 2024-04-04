@@ -19,19 +19,20 @@ import NotificationContoller from './controller/chatController/notificationContr
 const server = http.createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173"
+    origin: "https://client-hospital-qv1u.vercel.app"
   }
-})
+});
+
  
 //appendig as argument  
 NotificationContoller(io)
 
 //managing the cors
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: 'https://client-hospital-qv1u.vercel.app',
   credentials: true,
+  methods:["GET","POST","PUT","DELETE"]
 };
-
 //middlewires
 app.use(cors(corsOptions));
 app.use(express.json());

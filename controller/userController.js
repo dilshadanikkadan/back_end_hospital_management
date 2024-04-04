@@ -15,7 +15,7 @@ import LicenseShema from "../models/licenseModel.js";
 import InvoiceSchema from "../models/admin/invoiceModel.js";
 import Razorpay from "razorpay";
 import crypto from "crypto";
-import ApprovedDoctorModel from "../models/Doctor/ApprovedDoctorModel.js";
+import ApprovedDoctorModel from "../models/Doctor/approvedDoctorModel.js";
 import Appointment from "../models/AppointmentModel.js";
 import ReviewModel from "../models/socket/ReviewModel.js";
 import { approveAppointment } from "./doctorController.js";

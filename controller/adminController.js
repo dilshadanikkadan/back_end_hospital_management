@@ -12,7 +12,7 @@ import easyinvoice from "easyinvoice";
 import { dataPdf } from "../utils/pdfData.js";
 import cloudinary from "cloudinary";
 import fs from "fs";
-import ApprovedDoctorModel from "../models/Doctor/ApprovedDoctorModel.js";
+import ApprovedDoctorModel from "../models/Doctor/approvedDoctorModel.js";
 import BannerModel from "../models/admin/BannerModel.js";
 import SpecialityModel from "../models/admin/specialityModel.js";
 

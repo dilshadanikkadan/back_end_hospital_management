@@ -33,7 +33,7 @@ export default function NotificationContoller(io) {
     //managing the online users
     socket.emit("getOnlineUsers", onlineUsers);
 
-    //send message 
+    //send message
     socket.on("sendData", ({ socketId, _id, recieverId }) => {
       const filtered = onlineUsers.find((user) => user._id === recieverId);
       console.log("your are sending to :" + filtered?.socketId);
@@ -49,14 +49,13 @@ export default function NotificationContoller(io) {
 
       console.log("reciever id is : " + recieverId);
       const filtered = onlineUsers.find((user) => user._id === recieverId);
-   
+
       io.to(filtered?.socketId).emit("getMessage", {
         sender,
         recieverId,
         text,
       });
     });
-
 
     //manage typing....
     socket.on("typing", ({ recieverId, text }) => {
@@ -67,7 +66,6 @@ export default function NotificationContoller(io) {
         console.log("User not found or offline.");
       }
     });
-
 
     //video chat
     socket.on("callUser", (data) => {
@@ -80,9 +78,8 @@ export default function NotificationContoller(io) {
         name: data.name,
       });
     });
-    
 
-    // answer the call 
+    // answer the call
     socket.on("answerCall", (data) => {
       console.log("reched here awsome to see that");
       console.log("data To :" + data.to);
@@ -105,14 +102,13 @@ export default function NotificationContoller(io) {
       });
     });
 
-
-    //video end 
+    //video end
     socket.on("videoEnd", (data) => {
       const filtered = onlineUsers.find((user) => user._id === data.userToCall);
       io.to(filtered?.socketId).emit("endVideoCall", { msg: "end" });
     });
 
-    //sending  the call stream 
+    //sending  the call stream
     socket.on("sendCalling", ({ recieverId, msg }) => {
       console.log(recieverId);
       console.log(msg);

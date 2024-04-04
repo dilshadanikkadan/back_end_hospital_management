@@ -2,7 +2,7 @@ import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { createError } from "../utils/error.js";
-import ApprovedDoctorModel from "../models/Doctor/ApprovedDoctorModel.js";
+import ApprovedDoctorModel from "../models/Doctor/approvedDoctorModel.js";
 import Appointment from "../models/AppointmentModel.js";
 
 export const doctorLogin = async (req, res, next) => {
