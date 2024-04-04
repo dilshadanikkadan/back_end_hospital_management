@@ -12,7 +12,7 @@
       "dest": "/" ,
       "methods":["GET","POST","PUT","PATCH","DELETE","OPTIONS"],
       "headers": {
-        "Access-Control-Allow-Origin": "https://client-hospital.vercel.app/",
+        "Access-Control-Allow-Origin": "https://client-hospital-qv1u.vercel.app",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Authorization",
         "Access-Control-Allow-Credentials": "true"
