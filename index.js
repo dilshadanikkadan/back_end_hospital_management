@@ -46,12 +46,12 @@ app.use((err, req, res, next) => {
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://client-hospital-qv1u.vercel.app",
+    origin: ["https://client-hospital-qv1u.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true,
-    transports: ["websocket", "polling"],
+    transports: ["websocket"],
   },
-  allowEIO3: true,
+
 });
 
 //appendig as argument
