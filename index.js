@@ -21,7 +21,8 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 const corsOptions = {
-  origin: ["https://client-hospital-qv1u.vercel.app", "http://localhost:5173","http://localhost:3000"],
+     origin: ["https://client-hospital-qv1u.vercel.app", "http://localhost:5173","http://localhost:3000","http://medifly.site","https://medifly.site"],
+
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
@@ -61,7 +62,8 @@ app.get("/*", (req, res) => {
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["https://client-hospital-qv1u.vercel.app", "http://localhost:5173","http://localhost:3000"],
+      origin: ["https://client-hospital-qv1u.vercel.app", "http://localhost:5173","http://localhost:3000","http://medifly.site","https://medifly.site"],
+
   },
 });
 
