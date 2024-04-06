@@ -16,7 +16,7 @@ import {fileURLToPath} from "node:url"
 const _dirname = path.dirname("");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const builtPath = path.join(__dirname, "../client/dist");
+const builtPath = path.join(__dirname, "../client_hospital/dist");
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
@@ -49,7 +49,7 @@ app.use((err, req, res, next) => {
 
 // Serving React
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname,"../client/dist/index.html"), (err) => {
+  res.sendFile(path.join(__dirname,"../client_hospital/dist/index.html"), (err) => {
     if (err) {
       console.error("Error sending file:", err);
       res.status(500).send("Error sending file");
