@@ -154,7 +154,7 @@ export const unBlock = async (req, res, next) => {
 //license adding
 export const addLicenses = async (req, res, next) => {
   const { licenseNo } = req.body;
-  let id = "660d47456c48308131aace38";
+  let id = "6612ca6b7f9621bc7064d397";
   try {
     const lisenceAdding = await LicenseShema.updateOne(
       { _id: id },
@@ -175,7 +175,7 @@ export const addLicenses = async (req, res, next) => {
 //delteLicesnce
 export const deleteLicense = async (req, res) => {
   const { licenseNo } = req.body;
-  let id = "660d47456c48308131aace38";
+  let id = "6612ca6b7f9621bc7064d397";
 
   try {
     const response = await LicenseShema.updateOne(
@@ -188,7 +188,7 @@ export const deleteLicense = async (req, res) => {
 };
 
 export const getAllLcense = async (req, res, next) => {
-  let id = "660d47456c48308131aace38";
+  let id = "6612ca6b7f9621bc7064d397";
 
   try {
     const response = await LicenseShema.findById(id);
