@@ -196,7 +196,7 @@ export const resetPassword = async (req, res, next) => {
 };
 
 export const chekLicenseIsValid = async (req, res, next) => {
-  let id = "660d47456c48308131aace38";
+  let id = "6612ca6b7f9621bc7064d397";
   const { licenseNo } = req.body;
   try {
     //cheking this is valid licenseNO or not
