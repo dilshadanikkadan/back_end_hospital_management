@@ -11,7 +11,7 @@ import http from "http";
 import { Server } from "socket.io";
 import NotificationContoller from "./controller/chatController/notificationController.js";
 import path from "path";
-import {fileURLToPath} from "node:url"
+import { fileURLToPath } from "node:url";
 
 const _dirname = path.dirname("");
 const __filename = fileURLToPath(import.meta.url);
@@ -21,7 +21,13 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 const corsOptions = {
-     origin: ["https://client-hospital-qv1u.vercel.app", "http://localhost:5173","http://localhost:3000","http://medifly.site","https://medifly.site"],
+  origin: [
+    "https://client-hospital-qv1u.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "http://medifly.site",
+    "https://medifly.site",
+  ],
 
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
@@ -34,7 +40,7 @@ app.use("/api/user", userRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/doctor", doctorRoute);
 app.use("/api/chat", chatRoute);
-app.use(express.static(builtPath))
+app.use(express.static(builtPath));
 
 // Error middleware
 app.use((err, req, res, next) => {
@@ -50,20 +56,26 @@ app.use((err, req, res, next) => {
 
 // Serving React
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname,"../client_hospital/dist/index.html"), (err) => {
-    if (err) {
-      console.error("Error sending file:", err);
-      res.status(500).send("Error sending file");
+  res.sendFile(
+    path.join(__dirname, "../client_hospital/dist/index.html"),
+    (err) => {
+      if (err) {
+        console.error("Error sending file:", err);
+        res.status(500).send("Error sending file");
+      }
     }
-  });
+  );
 });
 
 // HTTP setup for socket
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-      origin: ["https://client-hospital-f5xm.vercel.app", "http://localhost:5173","http://localhost:3000","http://medifly.site","https://medifly.site"],
-
+    origin: [
+      "https://client-hospital-f5xm.vercel.app",
+      "http://localhost:5173",
+      "https://back-end-hospital-management.onrender.com" ,
+    ],
   },
 });
 
