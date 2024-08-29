@@ -62,7 +62,7 @@ app.get("/*", (req, res) => {
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-      origin: ["https://client-hospital-qv1u.vercel.app", "http://localhost:5173","http://localhost:3000","http://medifly.site","https://medifly.site"],
+      origin: ["https://client-hospital-f5xm.vercel.app", "http://localhost:5173","http://localhost:3000","http://medifly.site","https://medifly.site"],
 
   },
 });
